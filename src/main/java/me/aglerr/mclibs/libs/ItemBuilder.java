@@ -1,6 +1,7 @@
 package me.aglerr.mclibs.libs;
 
-import com.cryptomorin.xseries.SkullUtils;
+import com.cryptomorin.xseries.profiles.builder.XSkull;
+import com.cryptomorin.xseries.profiles.objects.Profileable;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -191,17 +192,17 @@ public class ItemBuilder {
     }
 
     public ItemBuilder skull(String identifier){
-        SkullUtils.applySkin(this.meta, identifier);
+        XSkull.of(this.meta).profile(Profileable.detect(identifier)).apply();
         return this;
     }
 
     public ItemBuilder skull(OfflinePlayer identifier){
-        SkullUtils.applySkin(this.meta, identifier);
+        XSkull.of(this.meta).profile(Profileable.of(identifier)).apply();
         return this;
     }
 
     public ItemBuilder skull(UUID identifier){
-        SkullUtils.applySkin(this.meta, identifier);
+        XSkull.of(this.meta).profile(Profileable.of(identifier)).apply();
         return this;
     }
 
